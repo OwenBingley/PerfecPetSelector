@@ -1,22 +1,20 @@
 
 // Name: Owen Bingley
 // Date: October 15, 2025
-// Description: This program helps the user find their perfect pet based on
-// their favorite color, favorite season, and their name. It uses simple
-// if/else logic and makes sure users only type valid inputs.
-
+// Description: This program helps the user find their perfect pet based on their favorite color, favorite season, and their name. 
 import java.util.Scanner;
 
 public class Pet {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        String color = "";
-        String season = "";
-        String name = "";
+        String color = "";       // declares color
+        String season = "";      // declares season
+        String name = "";      // declares name
         String pet = "Pet Rock"; // default pet
-
-        // Ask for favorite color
+         // precondition: the input from the user
+        // post condition: the input from the user convertied into code readable by the computer or prints saying that the ppre condition was not valid.
+         // Asks for favorite color and takes the input and responds with the apropriate output
         while (true) {
             System.out.println("Enter your favorite color (red, blue, or green):");
             color = input.nextLine().toLowerCase().trim();
@@ -24,11 +22,12 @@ public class Pet {
             if (color.equals("red") || color.equals("blue") || color.equals("green")) {
                 break;
             } else {
-                System.out.println("That’s not a valid color! Please type red, blue, or green.");
+                System.out.println("That’s not one of the colors!  type red, blue, or green.");
             }
         }
-
-        // Ask for favorite season
+          // precondition: the input from the user
+        // post condition: the input from the user convertied into code readable by the computer or prints saying that the ppre condition was not valid.
+        // Asks for favorite season and takes the input and responds with the apropriate output
         while (true) {
             System.out.println("Enter your favorite season (fall, spring, winter, or summer):");
             season = input.nextLine().toLowerCase().trim();
@@ -36,11 +35,12 @@ public class Pet {
             if (season.equals("fall") || season.equals("spring") || season.equals("winter") || season.equals("summer")) {
                 break;
             } else {
-                System.out.println("That’s not a valid season! Please type fall, spring, winter, or summer.");
+                System.out.println("That not a season!  type fall, spring, winter, or summer.");
             }
         }
-
-        // Ask for name and make sure it starts with a letter
+         // precondition: the input from the user
+        // post condition: the input from the user convertied into code readable by the computer or prints saying that the ppre condition was not valid.
+        // Asks for name and makes sure it starts with a letter and takes the input and responds with the apropriate output
         while (true) {
             System.out.println("Enter your name:");
             name = input.nextLine().trim();
@@ -60,8 +60,9 @@ public class Pet {
         char firstLetter = name.toLowerCase().charAt(0);
         boolean startsWithVowel = "aeiou".indexOf(firstLetter) >= 0;
         boolean startsWithConsonant = !startsWithVowel;
-
-        // Start checking rules
+        // pre conditions: the inputs from the users.
+        // post coditions: the pet selected from the inputs.
+        // checks the rules and sets pet as difernt strings
         if (color.equals("blue") && season.equals("fall")) {
             pet = "Alligator";
         } 
@@ -87,14 +88,14 @@ public class Pet {
             }
         }
 
-        // Additional rule for Axolotl (must come after Ostrich check)
+        // additional rule for axolotl  
         if (startsWithConsonant && color.equals("blue") && !season.equals("summer") && !season.equals("fall")) {
             if (!pet.equals("Ostrich")) {
                 pet = "Axolotl";
             }
         }
 
-        // Default catch-all is Pet Rock (already set by default)
+        // set by defalt to pet rock if you do not qualify for a different pet
         System.out.println();
         System.out.println("Your perfect pet is: " + pet);
     }
