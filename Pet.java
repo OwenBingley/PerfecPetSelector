@@ -87,7 +87,8 @@ public class Pet {
                 pet = "Pony";
             }
         }
-
+        //pre condition: stored values from users inputs
+        //post condition: changes pet or keeps it the same
         // additional rule for axolotl  
         if (startsWithConsonant && color.equals("blue") && !season.equals("summer") && !season.equals("fall")) {
             if (!pet.equals("Ostrich")) {
